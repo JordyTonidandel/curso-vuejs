@@ -1,0 +1,51 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+  <p v-once>{{ contador }}</p>
+  <p>{{ contador }}</p>
+  <button v-on:click="somar(5, $event)">
+    +  
+  </button>
+  <button v-on:click="decrementar(5, $event)">
+    -  
+  </button>
+  <hr>
+  <br>
+  <hr>
+  <p v-on:mousemove="atualizarXEY">
+    Mouse: {{ x }} e {{ y }}
+    <span v-on:mousemove.stop="parar">
+      PARAR AQUI!
+    </span>
+  </p>
+  <a v-on:click="naoNavegar" href="http://google.com.br">Google</a>
+</div>
+
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    contador: 5,
+    x: 0,
+    y: 0
+  },
+  methods: {
+    somar(passo, event) {
+      this.contador += passo
+    },
+    decrementar(passo, event) {
+      this.contador -= passo
+    },
+    atualizarXEY(event) {
+      this.x = event.clientX
+      this.y = event.clientY
+    },
+    naoNavegar(event) {
+      event.preventDefault()
+    }
+    // parar (event) {
+    //   event.stopPropagation()
+    // }
+  }
+})
+</script>
