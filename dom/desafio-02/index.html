@@ -1,2 +1,28 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="http://inpkg.com/vue"></script>
+
+<div id="desafio">
+
+  <div class="btn-alerta">
+    <button v-on:click="alerta">Click</button>
+  </div>
+
+  <div class="input-capturar">
+    <input v-on:keydown="valor = $event.target.value" type="text">
+    <p>{{ valor }}</p>
+  </div>
+
+  <div>
+    <input v-on:keydown.enter="valor = $event.target.value" type="text">
+    <p>{{ valor }}</p>
+  </div>
+
+</div>
+
+
+
+
+
+
+<script src="app.js"></script>
 
